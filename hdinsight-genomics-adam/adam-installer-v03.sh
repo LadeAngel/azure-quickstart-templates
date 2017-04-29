@@ -17,7 +17,7 @@ fi
 # In case Spark is installed, exit.
 if [ -e /usr/hdp/current/spark ]; then
     echo "Spark is already installed, will overwrite ..."
-    rm -rf /usr/hdp/current/spark/*
+    rm -rf /usr/hdp/current/spark/
     # exit 0
 fi
 
