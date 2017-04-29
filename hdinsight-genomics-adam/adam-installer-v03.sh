@@ -9,8 +9,9 @@ fi
 
 # In case Spark is installed, exit.
 if [ -e /usr/hdp/current/spark ]; then
-    echo "Spark is already installed, exiting ..."
-    exit 0
+    echo "Spark is already installed, will overwrite ..."
+    rm -rf /usr/hdp/current/spark/*
+    # exit 0
 fi
 
 # Add HADOOP environment variable into machine level configuration.
@@ -26,14 +27,14 @@ echo "SPARK_HOME=/usr/hdp/current/spark" | sudo tee -a /etc/environment
 #echo "export PATH=$PATH:/usr/hdp/current/spark/bin" | sudo tee -a /root/.profile
 
 # Download Spark binary to temporary location.
-download_file http://d3kbcqa49mib13.cloudfront.net/spark-1.4.1-bin-hadoop2.6.tgz /tmp/spark-1.4.1-bin-hadoop2.6.tgz
+download_file http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz /tmp/spark-2.1.0-bin-hadoop2.7.tgz
 
 # Untar the Spark binary and move it to proper location.
-untar_file /tmp/spark-1.4.1-bin-hadoop2.6.tgz /usr/hdp/current
-mv /usr/hdp/current/spark-1.4.1-bin-hadoop2.6 /usr/hdp/current/spark
+untar_file /tmp/spark-2.1.0-bin-hadoop2.7.tgz /usr/hdp/current
+mv /usr/hdp/current/spark-2.1.0-bin-hadoop2.7 /usr/hdp/current/spark
 
 # Remove the temporary file downloaded.
-rm -f /tmp/spark-1.4.1-bin-hadoop2.6.tgz
+rm -f /tmp/spark-2.1.0-bin-hadoop2.7.tgz
 
 # Update variables/files to make Spark work on HDInsight.
 echo "SPARK_DIST_CLASSPATH=$(hadoop classpath)" | sudo tee -a /etc/environment
@@ -59,9 +60,9 @@ mv $SparkDefaults /usr/hdp/current/spark/conf/spark-defaults.conf
 
 #Install Maven in preperation for ADAM
 
-download_file http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz /tmp/apache-maven-3.3.3-bin.tar.gz
-untar_file /tmp/apache-maven-3.3.3-bin.tar.gz /tmp
-mv /tmp/apache-maven-3.3.3 /maven
+download_file http://mirrors.koehn.com/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz /tmp/apache-maven-3.5.0-bin.tar.gz
+untar_file /tmp/apache-maven-3.5.0-bin.tar.gz /tmp
+mv /tmp/apache-maven-3.5.0 /maven
 
 #Install Git and GeneTorrent Download common packages in preperation for ADAM
 apt-get install -y git libboost-filesystem1.48.0 libboost-program-options1.48.0 libboost-regex1.48.0 libboost-system1.48.0 libicu48 libxerces-c3.1 libxqilla6
