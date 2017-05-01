@@ -16,8 +16,8 @@ fi
 
 # In case Spark is installed, exit.
 if [ -e /usr/hdp/current/spark ]; then
-    echo "Spark is already installed, will overwrite ..."
-    rm -rf /usr/hdp/current/spark/
+    echo "Spark is already installed, not installing ..."
+    # rm -rf /usr/hdp/current/spark/
     # exit 0
 fi
 
@@ -37,8 +37,8 @@ echo "SPARK_HOME=/usr/hdp/current/spark" | sudo tee -a /etc/environment
 download_file http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz /tmp/spark-2.1.0-bin-hadoop2.7.tgz
 
 # Untar the Spark binary and move it to proper location.
-untar_file /tmp/spark-2.1.0-bin-hadoop2.7.tgz /usr/hdp/current
-mv /usr/hdp/current/spark-2.1.0-bin-hadoop2.7 /usr/hdp/current/spark
+# untar_file /tmp/spark-2.1.0-bin-hadoop2.7.tgz /usr/hdp/current
+# mv /usr/hdp/current/spark-2.1.0-bin-hadoop2.7 /usr/hdp/current/spark
 
 # Remove the temporary file downloaded.
 rm -f /tmp/spark-2.1.0-bin-hadoop2.7.tgz
