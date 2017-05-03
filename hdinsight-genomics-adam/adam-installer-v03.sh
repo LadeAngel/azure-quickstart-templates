@@ -34,7 +34,7 @@ echo "SPARK_HOME=/usr/hdp/current/spark" | sudo tee -a /etc/environment
 #echo "export PATH=$PATH:/usr/hdp/current/spark/bin" | sudo tee -a /root/.profile
 
 # Download Spark binary to temporary location.
-download_file http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz /tmp/spark-2.1.0-bin-hadoop2.7.tgz
+# download_file http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz /tmp/spark-2.1.0-bin-hadoop2.7.tgz
 
 # Untar the Spark binary and move it to proper location.
 # untar_file /tmp/spark-2.1.0-bin-hadoop2.7.tgz /usr/hdp/current
