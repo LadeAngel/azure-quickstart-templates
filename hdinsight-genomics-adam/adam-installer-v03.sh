@@ -41,7 +41,7 @@ download_file http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
 # mv /usr/hdp/current/spark-2.1.0-bin-hadoop2.7 /usr/hdp/current/spark
 
 # Remove the temporary file downloaded.
-rm -f /tmp/spark-2.1.0-bin-hadoop2.7.tgz
+# rm -f /tmp/spark-2.1.0-bin-hadoop2.7.tgz
 
 # Update variables/files to make Spark work on HDInsight.
 echo "SPARK_DIST_CLASSPATH=$(hadoop classpath)" | sudo tee -a /etc/environment
