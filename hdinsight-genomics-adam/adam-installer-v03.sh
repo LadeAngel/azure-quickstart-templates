@@ -43,8 +43,11 @@ echo "SPARK_HOME=/usr/hdp/current/spark" | sudo tee -a /etc/environment
 # Remove the temporary file downloaded.
 # rm -f /tmp/spark-2.1.0-bin-hadoop2.7.tgz
 
+# Set up link for Spark usage
+ln -s /usr/hdp/current/spark2-client /usr/hdp/current/spark
 # Update variables/files to make Spark work on HDInsight.
 echo "SPARK_DIST_CLASSPATH=$(hadoop classpath)" | sudo tee -a /etc/environment
+# Following line not needed for latest HDInsight
 ln -s /etc/hive/conf/hive-site.xml /usr/hdp/current/spark/conf
 
 
