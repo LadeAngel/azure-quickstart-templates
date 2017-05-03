@@ -85,6 +85,12 @@ mv /tmp/cghub /cghub
 cd /
 git clone https://github.com/bigdatagenomics/adam.git
 cd adam
+
+# Move to spark 2 and Scala 2.11
+
+./scripts/move_to_spark_2.sh
+./scripts/move_to_scala_2.11.sh
+
 export "MAVEN_OPTS=-Xmx512m -XX:MaxPermSize=128m"
 /maven/bin/mvn clean package -DskipTests
 
