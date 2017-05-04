@@ -99,3 +99,13 @@ echo "export PATH=$PATH:/usr/hdp/current/spark/bin:/maven/bin:/adam/bin:/cghub/b
 echo "export PATH=$PATH:/usr/hdp/current/spark/bin:/maven/bin:/adam/bin:/cghub/bin" | sudo tee -a /root/.profile
 echo "ADAM_HOME=/adam" | sudo tee -a /etc/environment
 
+# Verfiy the installation
+# hdfs dfs -ls /tmp
+# hdfs dfs -copyFromLocal /adam/adam-core/src/test/resources/small.sam /tmp
+# adam-submit transform /tmp/small.sam /tmp/small.adam
+# Output should have something like
+# Using ADAM_MAIN=org.bdgenomics.adam.cli.ADAMMain
+# Using SPARK_SUBMIT=/usr/hdp/current/spark/bin/spark-submit
+# ...
+# May 4, 2017 3:34:33 PM INFO: org.apache.parquet.hadoop.ColumnChunkPageWriteStore: written 55B for [contigName] BINARY: 20 values, 8B raw, 28B comp, 1 pages, encodings: [RLE, BIT_PACKED, PLAIN_DICTIONARY], dic { 1 entries, 5B raw, 1B comp}
+
